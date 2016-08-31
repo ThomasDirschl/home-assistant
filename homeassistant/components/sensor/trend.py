@@ -125,6 +125,6 @@ class SensorTrend(Entity):
                     self._state = self._up_message
                 elif to_value < from_value:
                     self._state = self._down_message
-            except ValueError as ex:
+            except (ValueError, TypeError) as ex:
                 self._state = '-'
                 _LOGGER.error(ex)
